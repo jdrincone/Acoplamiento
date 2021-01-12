@@ -1,0 +1,207 @@
+\documentclass[superscriptaddress,onecolumn,aps,preprint,showpacs,nofootinbib,pra,11pt]{revtex4-2}
+
+\usepackage[spanish]{babel} % English language/hyphenation
+
+\usepackage{amssymb} % Simbolos matematicos (por lo tanto)
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern} %
+\usepackage{bm}
+
+\usepackage[margin=2.5cm]{geometry}
+
+\usepackage{graphicx} % Incluir imágenes en LaTeX
+\usepackage{color} % Para colorear texto
+\usepackage{xcolor} 
+\usepackage{microtype} % Slightly tweak font spacing for esthetics
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+\begin{document}
+
+\setstretch{1.5}
+
+	\begin{center}
+    
+    	% MAKE SURE YOU TAKE OUT THE SQUARE BRACKETS
+    
+		\Large{\textbf{Acoplamiento espín-orbita y campos de gauge sint\'{e}ticos}}\\
+        \vspace{-0.2em}
+        \Large{Espectroscop\'{i}a Raman en un gas cu\'{a}ntico} \\
+        \vspace{0.5em}
+        \normalsize\textbf{Juan David Rincón} \\
+        \vspace{-0.5em}
+        \normalsize{jdrincone@gmail.com} \\
+        \vspace{0.5em}
+        \normalsize{Tutor: Freddy Jackson Poveda Cuevas} \\
+        \vspace{0.5em}
+        \normalsize{Posgrado en Ciencias Físicas} \\
+        \vspace{-0.5em}
+        \normalsize{Instituto de Física - Universidad Nacional Autónoma de México}\\
+     
+	\end{center}
+	
+    \begin{normalsize}
+    
+\section{Antecedentes y justificación}
+
+%La justificación a la parte de un proyecto de investigación que expone las razones que motivaron a realizar esa investigación. La justificación es la sección en la que se explica la importancia y los motivos que llevaron al investigador a realizar el trabajo. En la justificación se explica al lector por qué y para qué se investigó el tema elegido. En forma general, los motivos que el investigador puede dar en una justificación pueden ser que su trabajo permite construir o refutar teorías; aportar un nuevo enfoque o perspectiva sobre el tema; contribuir a la solución de un problema concreto (social, económico, ambiental, etc.) que afecta a determinadas personas; generar datos empíricos significativos y reutilizables; aclarar las causas y consecuencias de un determinado fenómeno de interés; entre otras.
+
+Durante las últimas décadas el control y la manipulación de sistemas cuánticos, ha venido ganando importancia, ya que desde el punto de vista tecnológico ofrece grandes avances y una amplia gama de aplicaciones. Existen una gran variedad de sistemas que en principio podrían ser \textit{herramientas cuánticas}, en particular, los gases cuánticos o ultrafríos toman una gran relevancia \cite{Cornell-revmodphys74,Ketterle-revmodphys74, DeMarco-science285}, puesto que éstos se destacan en la versatilidad y control fino de los parámetros externos, y por tanto de las propiedades de las muestras. Estos elementos también los hacen sistemas ideales como plataformas de \textit{simulación cuántica} \cite{Bloch-naturephys8, Bloch-revmodphys80}, de hecho, entre las diversas propuestas de simulaciones, se encuentran aquellas relacionados con los problemas de muchos cuerpos y de materia condensada \cite{Bloch-naturephys8, Hofstetter-jpb51}, en particular temas relacionados, con la superfluidez y la superconductividad, el magnetismo \cite{Porto-science340, Greif-science340}, el efecto Hall cuántico y los aislantes topológicos \cite{Goldman-naturephys12}, localización de impurezas \cite{Li-scirep3}, entre otros. \medskip
+
+Realizar un mapeo completo de un sistema que esté gobernado por las leyes de la mecánica cuántica, representa un gran desafío desde el punto de vista técnico y teórico. No obstante, existen modelos que ya son bien conocidos y nos permiten obtener información relevante, simplemente conociendo la dinámica de los elementos que componen el sistema en sí. Este aspecto, permite diseñar Hamiltonianos y explorar la física relacionada con fenómenos cuánticos.  En la materia condensada, por ejemplo, gran parte de la fenomenología relacionada con el movimiento de cargas eléctricas dentro de materiales cristalinos se ha estudiado extensamente en la literatura, y ha permitido grandes desarrollos de dispositivos ahora de uso cotidiano. Adicionalmente, el comportamiento de cargas eléctricas en presencia de campos eléctricos y/o magnéticos externos cuentan con profundos estudios científicos. Es en este punto, en donde la simulación con gases cuánticos, requieren de \textit{ingeniería cuántica}, pues los átomos usados son intrínsecamente neutros, por tanto, estudiar los efectos de campos magnéticos o eléctricos no puede realizarse de manera directa. Para establecer una analogía completa de estos fenómenos \cite{Galitski-phystoday72}, podemos abordar este problema usando un \textit{campo de norma sintético}, manipulando el acoplamiento efectivo entre los átomos y la luz \cite{Galitski-nature494}.\medskip
+
+Así, la piedra angular de la simulación cuántica es la interacción de la radiación con la materia, la cual abarca diversas técnicas experimentales y teóricas en física atómica y óptica. De hecho, cuando nos referimos a la calidad en el control de esta clase de sistemas en gases cuánticos, estamos aludiendo a la accesibilidad de los grados de libertad internos del átomo en el gas, así como del comportamiento global de la muestra cuántica, en este caso un gas ultrafrío con temperaturas de centenas de $\mathrm{nK}$. Este hecho, permite abordar problemas efectivamente complejos, usando técnicas como las que son basadas en transiciones atómica de Raman, o técnicas de \textit{espectroscopía Raman} \cite{Jaksch-newjphys5}. En efecto, los campos de norma sintéticos, son diseños experimentales de campos externos que afectan la dinámica intrínseca de las muestras cuánticas \cite{Galitski-nature494}. Podemos destacar que existen dos formas muy generales de crear campos de norma sintéticos: (\textbf{1}) Rotando la nube de \'atomos el\'ectricamente neutros. En el marco que rota, el Hamiltoniano que describe el movimiento de los \'atomos adquiere un t\'ermino tipo vector potencial que describe la fuerza de Coriolis. Este \'ultimo tiene la misma estructura matem\'atica que la fuerza de Lorentz para una part\'icula cargada en un campo magn\'etico uniforme. (\textbf{2}) Imprimiendo una fase geométrica que varía espacialmente y se logra mediante la interacción átomo-láser que otorga la espectroscopía Raman. En nuestro caso en particular, nos centraremos en crear campos de norma implementados por (2) ya que los generados por rotación en (1) tiene grandes limitaciones en las llamadas intensidades efectivas del campo, es decir, no podemos crear campos artificiales muy fuertes.\medskip
+
+Vale la pena resaltar, que existen una gran variedad de teorías, en diferentes contextos, que usan campos de norma, por ejemplo: en el modelo estándar \cite{Guidry-book2008}, en teorías con gravitación \cite{Baez-book1994}, en teorías topológicas tipo Chern-Simmons \cite{Marino-book2005}, e inclusive en el contexto de la materia condensada en superfluidez y superconductividad \cite{Kleinert-book1989a}. Siendo éste un tema tan universal, no es de extrañarse que tener una \textit{plataforma de simulación cuántica} como un gas cuántico, que permita tener control fino y general de todos parámetros dinámicos, sea una herramienta que inicie la posibilidad de explorar sistemas todavía inexplorados o que todavía se enmarcan dentro de cuestiones abiertas. Por ejemplo, es posible aplicar el método de campos de norma sintético a una red óptica usando la mariposa de Hofstadter en el marco de los campos fuertes dentro de la materia condensada \cite{Aidelsburger-prl107} e inclusive algunas propuestas desafiantes con redes exóticas de monopolos en el escenario de los semi-metales de Weyl \cite{Dubeck-prl114}. Mostrando que esta clase de sistemas comienzan a tener un panorama relevante, pues dan acceso e información física más allá de las teorías vigentes o de sistemas experimentalmente limitados, ya que usualmente los parámetros del sistema no pueden ser sintonizados\footnote{Por ejemplo, en materia condensada los parámetros de red son únicos para cada estructura y la interacción entre los componentes está fija}.\medskip
+
+Por otra parte, México comienza a abrirse escena en el mundo, en especial con la producción del primer gas cuántico fermiónico de Litio en Latinoamérica. De hecho, el Laboratorio de Materia Ultrafría (LMU) del Instituto de Física de la UNAM (IF-UNAM), actualmente produce gases fermiónicos ultrafríos ($^{6}\mathrm{Li}$), pero también potencialmente podría producir un gas bosónico ($^{7}\mathrm{Li}$) o una mezcla de gases cuánticos fermión-bosón ($^{6}\mathrm{Li}$- $^{7}\mathrm{Li}$). En este sentido, la riqueza física de estos sistemas, abre posibles escenarios a ser explorados por primera vez, ya sea usando los bosones y/o fermiones de manera independiente, o realizando una mezcla estadística con los dos isótopos de Litio. Por otra parte, el LMU se encuentra también en capacidad técnica y humana para comenzar a explorar campos de norma sintéticos en gases cuánticos, implementando técnicas de espectroscopía Raman, con el ánimo de  tener acceso a fenómenos que antes no era posible estudiar de manera directa, y que ahora gracias a la versatilidad de estos sistemas, podemos realizar ingeniería cuántica y diseñar sistemas cuánticos con un alto grado de control, ya sea de las propiedades atómicas, de la luz, o de ambos.
+
+\section{Objetivos}
+
+%Las metas son amplias, los objetivos son directos y estrechos. Las metas son intensiones generales, los objetivos precisos. Las metas muchas veces son intangibles, los objetivos tangibles. Las metas tienden a ser abstractas, los objetivos concretos. Las metas son difíciles de medir, los objetivos no. Las metas y objetivos son utilizados de diferente forma en muchos aspectos. Las metas ponen la mirada en el horizonte, los objetivos en los pasos que debemos dar para llegar a ese horizonte.
+
+\begin{itemize}
+
+\item Implementar la técnica de espectroscopía Raman en un gas cuántico de fermiones ($^{6}\mathrm{Li}$), con el ánimo de crear el\textit{ primer simulador cuántico de México} para sistemas de teoría de campos y/o teorías de norma Abelianas y no-Abelianas. 
+
+\item Hacer una caracterización detallada de dichos campos de norma sintéticos explorando la estadística de estos, ya sea usando un gas puramente fermiónico, bosónico o en una mezcla de fermión-bosón en sistemas cuya geometría puede ser definida \textit{a priori} y que fácilmente puede convertirse en una red óptica.
+
+\item Diseñar metódicamente los campos de norma sintéticos para realizaciones de fenómenos difíciles de observar en la naturaleza, así como sistemas exóticos de teorías de campo cuántico, como por ejemplo la partícula hipotética que simultáneamente posee una carga eléctrica y una carga magnética de monopolo,  la cual fue postulada por Julian Schwinger y recibe el nombre de dyon \cite{Schwinger-science165}.
+
+\end{itemize}
+
+\section{Metas}
+
+%Las metas son amplias, los objetivos son directos y estrechos. Las metas son intensiones generales, los objetivos precisos. Las metas muchas veces son intangibles, los objetivos tangibles. Las metas tienden a ser abstractas, los objetivos concretos. Las metas son difíciles de medir, los objetivos no. Las metas y objetivos son utilizados de diferente forma en muchos aspectos. Las metas ponen la mirada en el horizonte, los objetivos en los pasos que debemos dar para llegar a ese horizonte.
+
+La trayectoria y tradición científica del IF-UNAM siempre ha tenido un alto impacto, además de ser pionero en múltiples áreas de investigación en México y en Latinoamérica. Este protocolo de investigación engloba la filosofía que hasta ahora se ha venido construyendo en México, y nuestra \textit{primera meta} tiene la intención de crear un nuevo espacio para discutir conceptos que fortalezcan y enriquezcan la investigación. \medskip
+
+Por otra parte, y como \textit{segunda meta} se pretende consolidar las líneas de investigación ya existentes del IF-UNAM, participando activamente con la planta de investigadores actual, señalando que contamos con un firme apoyo teórico, en particular los doctores Víctor Romero Rochín y Santiago Caballero Benítez, quienes aportarán y contribuirán al desarrollo de este trabajo. Desde la perspectiva experimental, la física de átomos fríos y ultrafríos tiene un entorno bien conformado y en progreso (reciente), en particular con los doctores, Jorge Seman Harutinian y Daniel Sahagún Sánchez, quienes aportarán conocimiento y experiencia en el desarrollo de este protocolo de investigación.\medskip
+
+La \textit{tercera meta} está relacionada con un aporte sustancial a áreas de investigación emergentes, como las plataformas de simulación cuántica. En especial, las que se encuentran relacionadas con teorías de campo en sus diferentes contextos, ya sea en la física de altas energías, en materia condensada, en gravitación, en teorías de cuerdas, entre otras. Esta propuesta, desde el punto de vista más ambicioso, será el primer paso para crear una nueva línea de investigación en \textbf{campos de norma sintéticos}, la cual se proyecta como área de alto impacto.
+
+\section{Metodología}
+
+Como se ha mencionado el experimento ya se encuentra en capacidades de producir muestras de origen cuántico. En este contexto, vale la pena mencionar que todo sistema con el que se pretende alcanzar la degeneración cuántica tiene en general la siguientes características: (\textbf{1}) Una fuente que provee los átomos. (\textbf{2}) Un sistema de vacío ensamblado con una cámara principal con la presión adecuada ($\sim 10^{-11} ~\mathrm{Torr}$). (\textbf{3}) Un sistema de automatización y control con la resolución temporal apropiada ($\sim 2 ~ \mu \mathrm{s}$). (\textbf{4}) Un sistema óptico y un conjunto de láseres con los cuales se controlan las transiciones atómicas. (\textbf{5}) Una trampa magneto-óptica. (\textbf{6}) Una técnica o una serie de técnicas específicas para realizar el enfriamiento sub-Doppler. (\textbf{7}) Una trampa de confinamiento óptico y/o magnético, en donde finalmente se hará un proceso de enfriamiento evaporativo para llegar al gas cuántico. (\textbf{8}) El control de las colisiones \'atomicas es importante para explorar los diferentes regímenes de interacción al que se tienen acceso via las resonancias de Feshbach.  Finalmente, y después de este importante resumen, y obviamente el pilar de esta investigación (\textbf{9}) el montaje e implementación de una técnica de espectroscopía Raman que ser\'a el m\'etodo con el cual se crear\'a un campo de norma artificial sobre un gas en su estado degenerado será explicado de manera sucinta con la intención de preparar los elementos y los conceptos necesarios para este nuevo experimento con gases ultrafríos.\medskip
+
+La técnica de espectroscopía Raman está basada esencialmente en dos haces láser contra-propagantes desintonizados uno con respecto al otro, en color azul y verde en la Fig. \ref{fig:Raman}(a), que inciden sobre un gas cu\'antico. Es decir, mientras un haz tiene frecuencia $\omega_L$ el otro se encuentra con una frecuencia $\omega_L+\delta\omega_L$, los dos con frecuencias y polarizaciones ortogonales bien determinadas. En particular, en el esquema de Litio en LMU las polarizaciones dependen de la orientación del campo magnético de Feshbach. Los \'atomos de la nube condensada estan caracterizados por sus estados hiperfinos, digamos $F=1$, en el cual han de poseer una degeneraci\'on en el estado base $|m_F\rangle$ correspondientes a diferentes proyecci\'ones del esp\'in $m_F=0,\pm 1$ pero esta puede ser removida por efecto Zeeman con la aplicaci\'on de un campo magn\'etico $B_0$. Los dos las\'eres inducen transiciones Raman entre los estados magn\'eticos con $\Delta m_F=1$ involucrando la absorci\'on (emisi\'on) de un fot\'on con vector de onda $\textbf{k}_r$ de un haz, y la emisi\'on (absorci\'on) de un fot\'on del otro haz con vector de onda opuesto $\textbf{k}_{r'}=\textbf{k}_r$ tal como se indica en la Fig. \ref{fig:Raman}(b). Como resultado los las\'eres acoplan los estados \'atomicos $|m_F,\textbf{k}\rangle$ en un estado vestido m\'as general con el que se puede describir el sistema \'atomo-campo de la forma $|\textbf{k}\rangle=c_{-1}|-1,\textbf{k}-2\textbf{k}_r\rangle+c_0|0,\textbf{k}\rangle+c_1|1,\textbf{k}+2\textbf{k}_r\rangle$, donde $c_j$ es la amplitud de probabilidad para que el \'atomo tenga proyecci\'on de esp\'in $m_F=j$. Lo importante del estado $|\textbf{k}\rangle$ es la existencia de un m\'inimo en su energ\'ia determinado por el vector de onda $\textbf{k}=\textbf{k}_{\text{min}}$, que define el campo de norma sint\'etico $\textbf{A}_{\text{ef}}=\hbar\textbf{k}_{\text{min}}$ \cite{Lin-nature462, Lin-naturephys7} y depende de cantidades altamente controlables en el laboratorio, las cuales son la desinton\'ia de los l\'aseres $\delta \omega_L$ y el cambio de intensidad del campo $B_0$ definido como $\delta_B$.
+
+ La ``presencia'' del campo se evidencia por la nucleación de vórtices cuantizados, dado que en la ausencia del mismo los vórtices no aparecerán. La aparición de vórtices obviamente depende de la desintonía que se esté usando.\medskip
+
+Vale considerar que la producción de gases cuánticos tiene por sí solo un desafío considerable, ya que en esta clase de experimentos es necesario implementar diferentes procedimientos de gran complejidad y técnica, la espectroscop\'ia de alta resolución, el enfriamiento y confinamiento magnético y/o óptico, e imágenes de alta resolución. Por otro lado, y una de las partes más esenciales de los experimentos son las técnicas de diagnóstico, entre estas la espectroscop\'ia de Bragg, que básicamente es una variación de la espectroscopía Raman, es decir en principio puede ser usado el mismo montaje óptico. Este procedimiento nos permite transferir momento de la luz a un gas cuántico, separándolo coherentemente en el espacio de momentos. Usando las propiedades de esta técnica, en especial la transferencia coherente, se puede extraer información sobre la distribución del gas.\medskip
+
+\begin{figure}[t]\centering
+	\includegraphics[width=0.48\textwidth]{Raman_a.pdf}
+	\includegraphics[width=0.48\textwidth]{Raman_b.pdf}
+	\caption{\textbf{Configuraci\'on experimental para la construci\'on de un campo de norma sint\'etico por transici\'on Raman.} a) Implementaci\'on f\'isica para transici\'on Raman por medio de dos l\'aseres con polarizaci\'on ortoganal bien definida (flechas azul y verde) inciden sobre un gas cu\'antico y un campo magn\'etico $B_0$ separa los niveles hiperfinos en que se encuentran los \'atomos. b) Separaci\'on de los niveles de energ\'a de los \'atomos con estado hiperfino $F=1$. Cambiando la intensidad del campo $B_0$ se puede aumentar o disminuir la desinton\'ia $\delta_B$ de los fotones que son emitidos o absorbidos. Si un \'atomo esta en el nivel hiperfino con $m_F=-1$ emite un fot\'on y su momento se reduce en $-2k_r$, en el caso que el \'atomo est\'e con $m_F=0$, absorve y emite un fot\'on sin tener ning\'un cambio en su momento, por ultimo si el \'atomo se encuentra en el estado $m_F=1$ absorve un fot\'on y gana $2k_r$ en su momento.}
+	\label{fig:Raman}  
+\end{figure}
+
+Tanto el diseño óptico, así como su montaje, serán realizados esencialmente por el candidato a doctor, Juan David Rincón. De esta manera, el estudiante durante su desarrollo adquirirá la experiencia para el control y entendimiento de este tipo de dispositivos. Por esta razón, un punto importante en la formación de estudiantes de posgrado, es que ellos también harán parte del entrenamiento y formación de futuros estudiantes de niveles de licenciatura y maestría. Además de aprender las diferentes técnicas a ser implementadas en el experimento contribuirá notablemente con la formación especializada en actividades de investigación de alto nivel.
+
+\section{Cronograma}
+
+La duración idónea para el doctorado es de 4 años. En el cronograma \ref{table:cronograma} se describe el plan de actividades para los años correspondientes. Los espacios asignados al Laboratorio de Materia Ultrafría, IF-UNAM, donde se desarrollará el proyecto de investigación asociado a este protocolo de investigación, para el inicio de esta propuesta ya estarán acondicionados.\medskip
+
+En este plan de trabajo se contempla también que el candidato pueda participar también activamente en docencia de al menos una materia por año en la Facultad de Ciencias, con énfasis en el área de física atómica y molecular, ya sea como docente principal o como ayudante.
+
+\begin{table}[H]
+\caption{Cronograma de actividades}\label{table:cronograma}
+
+\centering{}
+\begin{tabular}{|c|c|c|c|c|c|c|c|l|}
+\hline
+\hline
+\textbf{Actividad/Periodo (semestres)}			& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline \hline
+
+%\multicolumn{1}{|l|}{} &   &   &   &   &   &   &   &   \\ \hline
+
+\multicolumn{1}{|l|}{Revisión de Literatura}	& $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ \\ \hline
+
+\multicolumn{1}{|l|}{Docencia}	& $\blacksquare$  &  & $\blacksquare$  &  & $\blacksquare$  &  & $\blacksquare$  &   \\ \hline
+
+\multicolumn{1}{|l|}{Preparación del experimento}	&  &  & $\blacksquare$  & $\blacksquare$ & $\blacksquare$  &  &   &   \\ \hline
+
+\multicolumn{1}{|l|}{Implementación de los campos de norma sintéticos}	&  &  &  &  & $\blacksquare$  & $\blacksquare$ & $\blacksquare$  &  $\blacksquare$ \\ \hline
+
+\multicolumn{1}{|l|}{Preparación de artículos}	&   & $\blacksquare$ &   & $\blacksquare$ &   & $\blacksquare$ &   & 	$\blacksquare$ \\ \hline
+
+\multicolumn{1}{|l|}{Escritura de la tesis} &   &   &   &   &   &   &  & $\blacksquare$  \\ \hline
+
+\end{tabular}
+\end{table}
+
+\section{Desarrollo de la propuesta de investigación}
+
+La propuesta de investigación tiene en principio dos frentes: el primero relacionado con la descripción de partículas con espín-$1/2$ sobre superficies curvas y el segundo relacionado con sistemas magnéticos exóticos. Las dos involucran la creaci\'on de campos de norma construidos de forma sintética. Como sabemos, la interacción de electrones con campos eléctricos y magnéticos puede ser introducida naturalmente mediante un acoplamiento minimal\footnote{En unidades de MKS}, esto es 
+\[
+\mathbf{p'} \rightarrow \mathbf{p}+ e \mathbf{A},
+\] 
+en donde $\mathbf{p}$ es el momento, $e$ es la carga y $\mathbf{A}$ es el potencial vector. $\mathbf{p'}$ se le conoce como momentum canónicamente conjugado, y $\mathbf{A}$ es conocido como campo de norma. Esta forma de introducir es una forma general, que me permite hacer acoplamientos para diferentes ecuaciones de movimiento, como la ecuación de Schrödinger, la de Pauli, la de Klein-Gordon, la de Dirac, entre otras.\medskip 
+
+Sin embargo, un punto hasta ahora no mencionado es que los átomos usados para hacer simulaciones en gases cuánticos son intrínsicamente neutros, y por tanto estudiar directamente efectos de campos magnéticos o eléctricos no es factible. Podemos enfrentar este problema usando la llamada interacción espín-orbita, la cual introduce un acomplamiento efectivo vía espectroscopía Raman \cite{Galitski-nature494}. El efecto resultante es una simulación de una partícula cargada, cuyo acomplamiento es completamente análogo al de un sistema sumergido en un campo de norma:
+\[
+\mathbf{p'}\rightarrow \mathbf{p}+ \mathbf{A}_{\text{ef}}\left(\textbf{k}, \mathbf{F} \right),
+\]
+donde $\mathbf{A}_{\text{ef}}$ es conocido como campo de norma sintético \cite{Lin-nature462, Lin-naturephys7}, y es una función del vector de onda de la luz Raman $\textbf{k}$ (y de su polarización) y el estado hiperfino del átomo $\mathbf{F}$.\medskip 
+
+Por otra parte, este campo puede ser Abeliano o no-Abeliano, la diferencia entre uno y otro dependerá apenas, de como se hace la ingeniería de los campos de luz usados en las transiciones Raman. 
+
+\subsection{Ecuación de Pauli sobre un espacio curvo}
+
+Vamos a considerar, \textit{la ecuación de Pauli} en una forma general, la cual describe una partícula cargada que tiene espín-$1/2$ sumergida en un campo magnético, esto es:
+\[
+\left[\frac{1}{2m}\left(\hat{{\bf p}}-e {\bf A}\right)^{2}-\frac{e \hbar}{2m}\bm{\sigma}\cdot{\bf B}+ e \phi\right] \left|\psi \left(t \right)\right\rangle  =\mathrm{i}\hbar\frac{\partial}{\partial t}\left|\psi \left(t \right)\right\rangle 
+\]
+si $e$ es la carga y $m$ la masa de la partícula, respectivamente. $\bm{\sigma}$ es un vector cuyas entradas son las matrices de Pauli. $\phi$ es el potencial escalar y $V = e \phi$ representaría la energía potencial. Además de esto, el vector de estado $\left|\psi \left(t \right)\right\rangle $ tiene dos componentes, debido a las proyecciones del espín,  y es conocido como \textit{spinor}. Esta ecuación es una forma más general de la ecuación de Schrödinger, y contiene naturalmente un término tipo Stern-Gerlach, el cual proviene de la existencia del momento magnético intrínseco de la partícula cargada. Dicha contribución puede ser representada como $\sim {\bm \mu}\cdot \mathbf{B}$, en donde $\mathbf{B}$ es el campo magnético externo y ${\bm \mu} = \frac{e \hbar}{2m}\bm{\sigma}$ es el momento magnético.
+
+Supongamos ahora que dicha ecuación se encuentra embebida en un espacio tridimensional, pero que la partícula se encuentra restringida al movimiento en una superficie que tiene una cierta curvatura. Es posible, parametrizar dicha superficie usando apenas dos variables espaciales $ q_1$ y $q_2 $, y una tercera $q_3$ que permite definir cualquier punto en la vecindad inmediata de esta superficie \cite{Costa-pra23, Costa-pra25}. La ecuaci\'on de Pauli ahora puede ser reescrita en una forma equivalente \cite{Wang-pra90},
+\begin{equation}
+\left[ -\frac{\hbar^2}{2m} G^{ij}D_i D_j + \frac{e \hbar}{2m \sqrt{G}} \sigma_i  \epsilon^{ijk} \partial_j A_k+ V_{\lambda}(q_3) \right] \left|\psi \left(t \right)\right\rangle = \mathrm{i} \hbar D_0 \left|\psi \left(t \right)\right\rangle .
+\end{equation}
+en donde $G_{ij}$ es la métrica de la superficie, $\sqrt{G}$ es el determinante, $V_{\lambda}(q_3)$ es un potencial de ``squeezing'' o de confinamiento en dos dimensiones. $\epsilon^{ijk}$ es el símbolo de Levi-Civita. Por otra parte, tenemos la forma de los potenciales de norma, para la parte escalar
+\[
+D_0 = \partial_t - \frac{\mathrm{i} e}{\hbar} \phi,
+\]
+y para la parte vectorial
+\[
+D_i = \nabla_i + \frac{\mathrm{i} e}{\hbar} A_i,
+\]
+Esta forma en particular de la ecuación de Pauli sobre una superficie curva puede generelizarse, obteniendo una ecuación de movimiento que obedece un Hamiltoniano con un término de acoplamiento de espín-órbita y dos posibles términos: Rashba y Dresselhaus \cite{Hatano-pra75}. Este sistema puede ser extendido existiendo una fuerte analogía con un campo de Yang-Mills en $\mathrm{SU}\left(2\right)$ \cite{Cheng-prb84}. De esta manera, el campo de norma está relacionada íntimamente con una fase geométrica o fase Berry. En esta interpretación, el espín puede existir más allá de la superficie, y la dinámica de las partícula que se encuentra restringida a la misma se ve afectada debido a la existencia de las tres componentes de espín.
+
+Concretamente, en esta propuesta de doctorado se pretende hacer una simulación de los efectos geométricos sobre superficies curvas de un campo de norma no-Abeliano, introducido mediante un acoplamiento tipo espín-órbita. Debido que, esta analogía todavía no ha sido reportada en la literatura.
+ 
+ 
+\subsection{Magnetismo exótico}
+
+De hecho, ya se han diseñado metódicamente campos de norma sintéticos para realizaciones de fenómenos difíciles de observar en la naturaleza, como por ejemplo los monopolos magnéticos de Dirac \cite{Ray-nature505}. De acuerdo con esto, en el experimento a ser propuesto podremos estudiar una partícula postulada por Julian Schwinger que es funcionalmente idéntica al monopolo \cite{Schwinger-science165}, y que recibe el nombre \textit{dyon}. Ésta partícula tiene simultáneamente carga eléctrica y carga magnética de monopolo. \medskip
+
+Por otra parte, y para contextualizar un poco el objetivo de esta propuesta, explicaré brevemente en qué consiste la cromodinámica holográfica \cite{Erlich-prl95}. La cromodinámica es una teoría fundamental que describe la interacción entre quarks en el núcleo, mientras que la teoría de cuerdas es una teoría que tiene como objetivo unificar la gravedad con el resto de interacciones fundamentales, idea que hasta ahora es completamente matemática y sin realizaciones experimentales debido a las escalas de energía. De esta forma, ¿será posible encontrar una equivalencia entre estas dos teorías? La respuesta es que sí y es la llamada dualidad norma/gravedad. Este revolucionario concepto permite extender las ideas de teoría de cuerdas a una teoría como la cromodinámica cuántica, en una dualidad conocida como cromodinámica holográfica \cite{Erlich-prl95}, la cual en otras palabras sería una ``aplicación de la teoría de cuerdas''. \medskip
+
+De esta manera, esta propuesta pretende abordar la cromodinámica holográfica desde el punto de vista experimental, ya que se sabe que existe un paralelo entre holografía y el aislante de Mott \cite{Edalati-prl106, Baggioli-arXiv160408915}. Y por este motivo, escogeremos un límite concreto de la cromodinámica holográfica conocida como la \textit{sal dyonica} \cite{Rho-jhep689}, la cual justamente tiene los ingredientes necesarios de la red que puede simularse en \'atomos fr\'ios.\medskip
+
+Finalmente, definimos concretamente la segunda parte de la propuesta, que consiste en crear y diseñar de manera controlada un campo de norma sintético en una red óptica para simular materiales magnéticos exóticos con topologías no-triviales como una red de dyons. La simulación de este sistema con propiedades inusuales, permitirá abordar el problema de la cromodinámica holográfica y a su vez abordar algunos conceptos fundamentales de teorías más complejas como la teoría de cuerdas.\medskip
+
+\end{normalsize}
+\vspace{2cm}
+\begin{center}
+ \rule{8cm}{0.1mm}
+\\Vo.Bo (Tutor)
+\end{center}
+
+%%%%%%% Bibliografía %%%%%%%%
+
+%\begin{multicols}{2}
+%{\small
+\bibliographystyle{apsrev}
+\bibliography{phdprotocoljdr}
+%}
+%\end{multicols}
+ 
+%%%%%%% Bibliografía %%%%%%%%    
+
+\end{document}
